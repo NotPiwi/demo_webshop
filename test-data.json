@@ -1,92 +1,89 @@
 {
-  "Register": [
-    {
-      "TestCaseID": "TC01_DemoWebShop_Register_ValidateErrorMessages",
-      "Descripción": "Verificar que se muestran los mensajes de error para los campos obligatorios en el formulario de registro cuando están vacíos.",
-      "Precondiciones": "El usuario accede a la página de registro (https://demowebshop.tricentis.com/register).",
-      "Pasos": [
-        "Navegar a la página de registro.",
-        "Hacer clic en el botón Register sin rellenar ningún campo."
-      ],
-      "ResultadosEsperados": [
-        "First name is required.",
-        "Last name is required.",
-        "Email is required.",
-        "Password is required."
-      ]
-    },
-    {
-      "TestCaseID": "TC02_DemoWebShop_Register_RegistrationSuccess",
-      "Descripción": "Verificar que un usuario puede registrarse correctamente con datos válidos.",
-      "Precondiciones": "El usuario accede a la página de registro.",
-      "Pasos": [
-        "Navegar a la página de registro.",
-        "Rellenar todos los campos requeridos con datos válidos.",
-        "Hacer clic en el botón Register."
-      ],
-      "ResultadosEsperados": [
-        "Your registration completed",
-        "El usuario es redirigido a su perfil o página principal."
-      ]
-    }
-  ],
-  "Login": [
-    {
-      "TestCaseID": "TC03_DemoWebShop_Login_LoginSuccess",
-      "Descripción": "Verificar que un usuario puede iniciar sesión correctamente con credenciales válidas.",
-      "Precondiciones": [
-        "El usuario debe estar registrado previamente.",
-        "Las credenciales están disponibles."
-      ],
-      "Pasos": [
-        "Navegar a la página de inicio de sesión (https://demowebshop.tricentis.com/login).",
-        "Rellenar los campos de correo electrónico y contraseña con datos válidos.",
-        "Hacer clic en el botón Log in."
-      ],
-      "ResultadosEsperados": [
-        "El usuario es redirigido a la página principal.",
-        "El nombre de la cuenta del usuario debe ser visible."
-      ]
-    },
-    {
-      "TestCaseID": "TC04_DemoWebShop_Login_ForgottenPassword",
-      "Descripción": "Verificar que la funcionalidad de recuperación de contraseña envía un correo correctamente.",
-      "Precondiciones": "El correo electrónico debe estar registrado en el sistema.",
-      "Pasos": [
-        "Navegar a la página de inicio de sesión.",
-        "Hacer clic en el enlace Forgot password.",
-        "Introducir un correo electrónico registrado.",
-        "Hacer clic en el botón Recover."
-      ],
-      "ResultadosEsperados": [
-        "Email with instructions has been sent"
-      ]
-    }
-  ],
-  "Purchase": [
-    {
-      "TestCaseID": "TC05_DemoWebShop_Purchase_PurchaseWhitePhoneCover",
-      "Descripción": "Verificar que un usuario puede agregar al carrito y comprar una funda de teléfono Apple blanca.",
-      "Precondiciones": [
-        "El usuario debe haber iniciado sesión.",
-        "El usuario debe tener una dirección."
-      ],
-      "Pasos": [
-        "Navegar a la página de accesorios.",
-        "Seleccionar el producto 'Apple iPhone Cover'.",
-        "Elegir el color 'White'.",
-        "Establecer la cantidad en 2.",
-        "Hacer clic en Add to Cart.",
-        "Ir a books",
-        "Seleccionar el producto computing and internet",
-        "Hacer click en add to Cart",
-        "Navegar al carrito y proceder al checkout.",
-        "Llenar el checkout.",
-        "Confirmar la compra."
-      ],
-      "ResultadosEsperados": [
-        "Your order has been successfully processed!"
-      ]
-    }
-  ]
-}
+    "Register": [
+      {
+        "TestCaseID": "TC01_DemoWebShop_Register_ValidateErrorMessages",
+        "Descripción": "Verificar que se muestran los mensajes de error para los campos obligatorios en el formulario de registro cuando están vacíos.",
+        "Precondiciones": "El usuario accede a la página de registro (https://demowebshop.tricentis.com/register).",
+        "Pasos": [
+          "Navegar a la página de registro.",
+          "Hacer clic en el botón Register sin rellenar ningún campo."
+        ],
+        "ResultadosEsperados": [
+          "First name is required.",
+          "Last name is required.",
+          "Email is required.",
+          "Password is required."
+        ]
+      },
+      {
+        "TestCaseID": "TC02_DemoWebShop_Register_RegistrationSuccess",
+        "Descripción": "Verificar que un usuario puede registrarse correctamente con datos válidos.",
+        "Precondiciones": "El usuario accede a la página de registro.",
+        "Pasos": [
+          "Navegar a la página de registro.",
+          "Rellenar todos los campos requeridos con datos válidos.",
+          "Hacer clic en el botón Register."
+        ],
+        "ResultadosEsperados": [
+          "Your registration completed",
+          "El usuario es redirigido a su perfil o página principal."
+        ]
+      }
+    ],
+    "Login": [
+      {
+        "TestCaseID": "TC03_DemoWebShop_Login_LoginSuccess",
+        "Descripción": "Verificar que un usuario puede iniciar sesión correctamente con credenciales válidas.",
+        "Precondiciones": [
+          "El usuario debe estar registrado previamente.",
+          "Las credenciales están disponibles."
+        ],
+        "Pasos": [
+          "Navegar a la página de inicio de sesión (https://demowebshop.tricentis.com/login).",
+          "Rellenar los campos de correo electrónico y contraseña con datos válidos.",
+          "Hacer clic en el botón Log in."
+        ],
+        "ResultadosEsperados": [
+          "El usuario es redirigido a la página principal.",
+          "El nombre de la cuenta del usuario debe ser visible."
+        ]
+      },
+      {
+        "TestCaseID": "TC04_DemoWebShop_Login_ForgottenPassword",
+        "Descripción": "Verificar que la funcionalidad de recuperación de contraseña envía un correo correctamente.",
+        "Precondiciones": "El correo electrónico debe estar registrado en el sistema.",
+        "Pasos": [
+          "Navegar a la página de inicio de sesión.",
+          "Hacer clic en el enlace Forgot password.",
+          "Introducir un correo electrónico registrado.",
+          "Hacer clic en el botón Recover."
+        ],
+        "ResultadosEsperados": [
+          "Email with instructions has been sent"
+        ]
+      }
+    ],
+    "Purchase": [
+      {
+        "TestCaseID": "TC05_DemoWebShop_Purchase_PurchaseWhitePhoneCover",
+        "Descripción": "Verificar que un usuario puede agregar al carrito y comprar una funda de teléfono Apple blanca.",
+        "Precondiciones": [
+          "El usuario debe haber iniciado sesión.",
+          "El usuario debe tener una dirección."
+        ],
+        "Pasos": [
+          "Navegar a la página de accesorios.",
+          "Seleccionar el producto 'Apple iPhone Cover'.",
+          "Elegir el color 'White'.",
+          "Establecer la cantidad en 2.",
+          "Hacer clic en Add to Cart.",
+          "Navegar al carrito y proceder al checkout.",
+          "Llenar el checkout.",
+          "Confirmar la compra."
+        ],
+        "ResultadosEsperados": [
+          "Your order has been successfully processed!"
+        ]
+      }
+    ]
+  }
