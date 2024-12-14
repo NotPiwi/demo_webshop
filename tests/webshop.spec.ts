@@ -34,6 +34,8 @@ test.describe('Login', () => {
     expect(await loginPage.verifyForgotPasswordMessage()).toBeTruthy();
   });
 });
+
+
 test.describe('Purchase', () => {
   let loginPage: LoginPage;
   let purchasePage: MainAndPurchasePage;
@@ -48,10 +50,11 @@ test.describe('Purchase', () => {
     expect(await loginPage.isLoggedIn()).toBeTruthy();
   });
 
-  test('TC05_DemoWebShop_Purchase_PurchaseWhitePhoneCover', async ({}) => {
+  test('TC05_DemoWebShop_Purchase_PurchaseCarItems', async ({}) => { //PurchaseWhitePhoneCover -> PurchaseCarItems
 
     await purchasePage.navigateToAccessories();
     await purchasePage.addToCart();
+    await purchasePage.addBookToCart(); //agregar el libro solicitado al carrito antes de hacer la compra
     await purchasePage.checkout();
 
     expect(await purchasePage.getOrderConfirmationMessage()).toBeTruthy();
