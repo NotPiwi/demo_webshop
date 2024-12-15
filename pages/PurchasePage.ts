@@ -10,6 +10,7 @@ export class MainAndPurchasePage {
   private readonly selectDropdown: Locator;
   private readonly productQuantity: Locator;
   private readonly addToCartBtn: Locator;
+  private readonly addToCartBtnBook: Locator;
   private readonly shoppingCart: Locator;
   private readonly checkoutBtn: Locator;
   private readonly termsOfService: Locator;
@@ -24,8 +25,9 @@ export class MainAndPurchasePage {
   constructor(page: Page) {
     this.page = page;
     this.booksHover = this.page.locator('a[href*="/books"]').first();
-    this.computingAndInternet = this.page.locator('//h2/a[contains(text(), "Computing and Internet")]');
-  
+    this.computingAndInternet = this.page.locator('//h2/a[contains(text(), "Computing and Internet")]').first();
+    this.addToCartBtnBook = this.page.locator('input[id="add-to-cart-button-13"]');//id for the selector fixed
+
     this.electronicsHover = this.page.locator('a[href*="/electronics"]').first();
     this.cellphones = this.page.locator('a[href*="/cell-phones"]').first();
     this.phoneCover = this.page.locator('//h2/a[contains(text(), "Phone Cover")]');
@@ -66,11 +68,11 @@ export class MainAndPurchasePage {
     await this.addToCartBtn.click();
   }
   async addBookToCart() { //agregar el libro solicitado al carrito antes de hacer la compra
-    await this.booksHover.hover();
+    await this.booksHover.click();
     await this.waitForElement(this.computingAndInternet);
     await this.computingAndInternet.click();
-    await this.waitForElement(this.addToCartBtn);
-    await this.addToCartBtn.click();
+    await this.waitForElement(this.addToCartBtnBook);//new selector for add book to cart
+    await this.addToCartBtnBook.click();
   }
 
   async checkout() {
