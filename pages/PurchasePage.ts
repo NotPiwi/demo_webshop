@@ -87,7 +87,8 @@ export class MainAndPurchasePage {
     await this.navigateToJewelry();
     await this.diamondHeart.click();
     await this.addDiamondHeartToCartBtn.click();
-  }
+  
+    
   async addBookToCart() {
     await this.books.click();
     await this.waitForElement(this.computingAndInternet);
