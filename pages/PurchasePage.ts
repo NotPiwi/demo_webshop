@@ -3,14 +3,17 @@ import { Locator, Page } from '@playwright/test';
 export class MainAndPurchasePage {
   private readonly page: Page;
   private readonly electronicsHover: Locator;
-  private readonly booksHover: Locator;
+  private readonly books: Locator;
   private readonly cellphones: Locator;
   private readonly computingAndInternet: Locator;
   private readonly phoneCover: Locator;
+  private readonly jewelry: Locator;
+  private readonly diamondHeart: Locator;
   private readonly selectDropdown: Locator;
   private readonly productQuantity: Locator;
-  private readonly addToCartBtn: Locator;
-  private readonly addToCartBtnBook: Locator;
+  private readonly addPhoneToCartBtn: Locator;
+  private readonly addDiamondHeartToCartBtn: Locator;
+  private readonly addComputingToCartBtn: Locator;
   private readonly shoppingCart: Locator;
   private readonly checkoutBtn: Locator;
   private readonly termsOfService: Locator;
@@ -24,16 +27,18 @@ export class MainAndPurchasePage {
 
   constructor(page: Page) {
     this.page = page;
-    this.booksHover = this.page.locator('a[href*="/books"]').first();
+    this.books = this.page.locator('a[href*="/books"]').first();
     this.computingAndInternet = this.page.locator('//h2/a[contains(text(), "Computing and Internet")]').first();
-    this.addToCartBtnBook = this.page.locator('input[id="add-to-cart-button-13"]');//id for the selector fixed
-
     this.electronicsHover = this.page.locator('a[href*="/electronics"]').first();
     this.cellphones = this.page.locator('a[href*="/cell-phones"]').first();
     this.phoneCover = this.page.locator('//h2/a[contains(text(), "Phone Cover")]');
+    this.jewelry = this.page.locator('a[href*="/jewelry"]').first();
+    this.diamondHeart = this.page.locator('//h2/a[contains(text(), "Black & White Diamond Heart")]');
     this.selectDropdown = this.page.locator('select[id="product_attribute_80_1_38"]');
     this.productQuantity = this.page.locator('input[id="addtocart_80_EnteredQuantity"]');
-    this.addToCartBtn = this.page.locator('input[id="add-to-cart-button-80"]');
+    this.addPhoneToCartBtn = this.page.locator('input[id="add-to-cart-button-80"]');
+    this.addDiamondHeartToCartBtn = this.page.locator('input[id="add-to-cart-button-14"]');
+    this.addComputingToCartBtn = this.page.locator('input[id="add-to-cart-button-13"]');
     this.shoppingCart = this.page.locator('a[href*="/cart"]').first();
     this.checkoutBtn = this.page.locator('button[id="checkout"]');
     this.termsOfService = this.page.locator('#termsofservice');
@@ -60,19 +65,36 @@ export class MainAndPurchasePage {
     await this.cellphones.click();
   }
 
-  async addToCart() {
+  async addItemsToCart() {
+    await this.addWhitePhoneCover();
+    await this.addDiamondHeart();
+    await this.addBookToCart();
+  }
+
+  async addWhitePhoneCover() {
     await this.phoneCover.click();
     await this.waitForElement(this.selectDropdown);
     await this.selectDropdown.selectOption('White');
     await this.productQuantity.fill('2');
-    await this.addToCartBtn.click();
+    await this.addPhoneToCartBtn.click();
   }
-  async addBookToCart() { //agregar el libro solicitado al carrito antes de hacer la compra
-    await this.booksHover.click();
+
+  async navigateToJewelry() {
+    await this.jewelry.click();
+  }
+
+  async addDiamondHeart() {
+    await this.navigateToJewelry();
+    await this.diamondHeart.click();
+    await this.addDiamondHeartToCartBtn.click();
+  
+    
+  async addBookToCart() {
+    await this.books.click();
     await this.waitForElement(this.computingAndInternet);
     await this.computingAndInternet.click();
-    await this.waitForElement(this.addToCartBtnBook);//new selector for add book to cart
-    await this.addToCartBtnBook.click();
+    await this.waitForElement(this.addComputingToCartBtn);
+    await this.addComputingToCartBtn.click();
   }
 
   async checkout() {
@@ -83,15 +105,10 @@ export class MainAndPurchasePage {
   }
 
   async fillCheckoutData(){
-    await this.waitForElement(this.continueBillingAddress);
     await this.continueBillingAddress.click();
-    await this.waitForElement(this.continueShippingAddress);
     await this.continueShippingAddress.click();
-    await this.waitForElement(this.continueShipingMethod);
     await this.continueShipingMethod.click();
-    await this.waitForElement(this.continuePaymentMethod);
     await this.continuePaymentMethod.click();
-    await this.waitForElement(this.continuePaymentInformation);
     await this.continuePaymentInformation.click();
     
     await this.confirmBtn.click();

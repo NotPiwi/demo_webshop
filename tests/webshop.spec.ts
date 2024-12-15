@@ -50,11 +50,10 @@ test.describe('Purchase', () => {
     expect(await loginPage.isLoggedIn()).toBeTruthy();
   });
 
-  test('TC05_DemoWebShop_Purchase_PurchaseCarItems', async ({}) => { //PurchaseWhitePhoneCover -> PurchaseCarItems
+  test('TC05_DemoWebShop_Purchase_PurchaseCarItems', async ({}) => {
 
     await purchasePage.navigateToAccessories();
-    await purchasePage.addToCart();
-    await purchasePage.addBookToCart(); //agregar el libro solicitado al carrito antes de hacer la compra
+    await purchasePage.addItemsToCart();
     await purchasePage.checkout();
 
     expect(await purchasePage.getOrderConfirmationMessage()).toBeTruthy();
