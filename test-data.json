@@ -65,8 +65,8 @@
   ],
   "Purchase": [
     {
-      "TestCaseID": "TC05_DemoWebShop_Purchase_PurchaseWhitePhoneCover",
-      "Descripción": "Verificar que un usuario puede agregar al carrito y comprar una funda de teléfono Apple blanca.",
+      "TestCaseID": "TC05_DemoWebShop_Purchase_PurchaseCarItems",
+      "Descripción": "Verificar que un usuario puede agregar al carrito y comprar dos fundas de teléfono Apple blancas, un diamond heart y computing and internet.",
       "Precondiciones": [
         "El usuario debe haber iniciado sesión.",
         "El usuario debe tener una dirección."
@@ -76,6 +76,9 @@
         "Seleccionar el producto 'Apple iPhone Cover'.",
         "Elegir el color 'White'.",
         "Establecer la cantidad en 2.",
+        "Hacer clic en Add to Cart.",
+        "Navegar a Jewelry",
+        "Seleccionar el producto 'Black & White Diamond Heart'.",
         "Hacer clic en Add to Cart.",
         "Ir a books",
         "Seleccionar el producto computing and internet",
