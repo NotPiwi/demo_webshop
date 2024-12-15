@@ -3,7 +3,9 @@ import { Locator, Page } from '@playwright/test';
 export class MainAndPurchasePage {
   private readonly page: Page;
   private readonly electronicsHover: Locator;
+  private readonly booksHover: Locator;
   private readonly cellphones: Locator;
+  private readonly computingAndInternet: Locator;
   private readonly phoneCover: Locator;
   private readonly jewelry: Locator;
   private readonly diamondHeart: Locator;
@@ -24,6 +26,9 @@ export class MainAndPurchasePage {
 
   constructor(page: Page) {
     this.page = page;
+    this.booksHover = this.page.locator('a[href*="/books"]').first();
+    this.computingAndInternet = this.page.locator('//h2/a[contains(text(), "Computing and Internet")]');
+  
     this.electronicsHover = this.page.locator('a[href*="/electronics"]').first();
     this.cellphones = this.page.locator('a[href*="/cell-phones"]').first();
     this.phoneCover = this.page.locator('//h2/a[contains(text(), "Phone Cover")]');
@@ -80,6 +85,13 @@ export class MainAndPurchasePage {
     await this.navigateToJewelry();
     await this.diamondHeart.click();
     await this.addDiamondHeartToCartBtn.click();
+  }
+  async addBookToCart() { //agregar el libro solicitado al carrito antes de hacer la compra
+    await this.booksHover.hover();
+    await this.waitForElement(this.computingAndInternet);
+    await this.computingAndInternet.click();
+    await this.waitForElement(this.addToCartBtn);
+    await this.addToCartBtn.click();
   }
 
   async checkout() {

@@ -66,7 +66,7 @@
   "Purchase": [
     {
       "TestCaseID": "TC05_DemoWebShop_Purchase_PurchaseCarItems",
-      "Descripción": "Verificar que un usuario puede agregar al carrito y comprar dos fundas de teléfono Apple blancas y un diamond heart.",
+      "Descripción": "Verificar que un usuario puede agregar al carrito y comprar dos fundas de teléfono Apple blancas, un diamond heart y computing and internet.",
       "Precondiciones": [
         "El usuario debe haber iniciado sesión.",
         "El usuario debe tener una dirección."
@@ -80,6 +80,9 @@
         "Navegar a Jewelry",
         "Seleccionar el producto 'Black & White Diamond Heart'.",
         "Hacer clic en Add to Cart.",
+        "Ir a books",
+        "Seleccionar el producto computing and internet",
+        "Hacer click en add to Cart",
         "Navegar al carrito y proceder al checkout.",
         "Llenar el checkout.",
         "Confirmar la compra."
