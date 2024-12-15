@@ -48,7 +48,7 @@ test.describe('Purchase', () => {
     expect(await loginPage.isLoggedIn()).toBeTruthy();
   });
 
-  test('TC05_DemoWebShop_Purchase_PurchaseWhitePhoneCover_and_DiamondHeart', async ({}) => {
+  test('TC05_DemoWebShop_Purchase_PurchaseCarItems', async ({}) => {
 
     await purchasePage.navigateToAccessories();
     await purchasePage.addItemsToCart();
