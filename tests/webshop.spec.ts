@@ -48,10 +48,10 @@ test.describe('Purchase', () => {
     expect(await loginPage.isLoggedIn()).toBeTruthy();
   });
 
-  test('TC05_DemoWebShop_Purchase_PurchaseWhitePhoneCover', async ({}) => {
+  test('TC05_DemoWebShop_Purchase_PurchaseWhitePhoneCover_and_DiamondHeart', async ({}) => {
 
     await purchasePage.navigateToAccessories();
-    await purchasePage.addToCart();
+    await purchasePage.addItemsToCart();
     await purchasePage.checkout();
 
     expect(await purchasePage.getOrderConfirmationMessage()).toBeTruthy();

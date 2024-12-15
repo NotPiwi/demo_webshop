@@ -65,7 +65,7 @@
     ],
     "Purchase": [
       {
-        "TestCaseID": "TC05_DemoWebShop_Purchase_PurchaseWhitePhoneCover",
+        "TestCaseID": "TC05_DemoWebShop_Purchase_PurchaseWhitePhoneCover_and_DiamondHeart",
         "Descripción": "Verificar que un usuario puede agregar al carrito y comprar una funda de teléfono Apple blanca.",
         "Precondiciones": [
           "El usuario debe haber iniciado sesión.",
